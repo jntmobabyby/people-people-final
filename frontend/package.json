@@ -1,0 +1,19 @@
+{
+  "name": "lab-reservation-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "axios": "^1.7.7",
+    "element-plus": "^2.8.4",
+    "vite": "^8.0.13",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
+  }
+}
