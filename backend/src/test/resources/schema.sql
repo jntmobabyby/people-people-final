@@ -1,0 +1,52 @@
+DROP TABLE IF EXISTS maintenance_ticket;
+DROP TABLE IF EXISTS return_record;
+DROP TABLE IF EXISTS reservation;
+DROP TABLE IF EXISTS equipment;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  student_no VARCHAR(32) NOT NULL UNIQUE,
+  name VARCHAR(64) NOT NULL,
+  username VARCHAR(64) NOT NULL UNIQUE,
+  password_hash VARCHAR(128) NOT NULL,
+  role VARCHAR(20) NOT NULL,
+  status TINYINT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE equipment (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  asset_no VARCHAR(64) NOT NULL UNIQUE,
+  name VARCHAR(128) NOT NULL,
+  category VARCHAR(64) NOT NULL,
+  location VARCHAR(128) NOT NULL,
+  status TINYINT NOT NULL
+);
+
+CREATE TABLE reservation (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT NOT NULL,
+  equipment_id BIGINT NOT NULL,
+  start_time DATETIME NOT NULL,
+  end_time DATETIME NOT NULL,
+  status TINYINT NOT NULL,
+  review_comment VARCHAR(255),
+  created_at DATETIME NOT NULL
+);
+
+CREATE TABLE return_record (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  reservation_id BIGINT NOT NULL UNIQUE,
+  return_time DATETIME NOT NULL,
+  condition_note VARCHAR(255),
+  penalty_amount DECIMAL(10,2) NOT NULL DEFAULT 0
+);
+
+CREATE TABLE maintenance_ticket (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  equipment_id BIGINT NOT NULL,
+  reporter_id BIGINT,
+  fault_desc VARCHAR(500) NOT NULL,
+  status TINYINT NOT NULL,
+  created_at DATETIME NOT NULL
+);
