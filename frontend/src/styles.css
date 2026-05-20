@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #0f2742;
+  color: #fff;
+}
+
+.brand {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.brand strong {
+  font-size: 20px;
+}
+
+.brand span,
+.role {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.nav {
+  border-right: none;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.page-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr 180px 140px auto;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.status-tag {
+  min-width: 72px;
+  text-align: center;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #eef5ff, #f8fafc);
+}
+
+.login-panel {
+  width: min(420px, calc(100vw - 32px));
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 16px 42px rgba(15, 39, 66, 0.12);
+}
+
+.login-panel h1 {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+
+.login-panel p {
+  margin: 0 0 20px;
+  color: #64748b;
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    display: none;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+}
